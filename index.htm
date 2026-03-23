@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomLove – Send Bouquets with Heart 💐</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Floating Petals Background -->
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🌹</span>
+                <span class="logo-text">BloomLove</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#bouquets">Bouquets</a></li>
+                <li><a href="#send">Send Now</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+            <button class="nav-cta" onclick="scrollToSection('send')">Send a Bouquet 💌</button>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">🌸 Same Day Delivery Available</div>
+            <h1 class="hero-title">Send Love,<br><span class="gradient-text">Petal by Petal</span></h1>
+            <p class="hero-subtitle">Express your deepest feelings with handcrafted bouquets made with love. Choose from our romantic collection and surprise someone special today.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('bouquets')">
+                    <i class="fas fa-flower"></i> Explore Bouquets
+                </button>
+                <button class="btn-secondary" onclick="scrollToSection('send')">
+                    <i class="fas fa-paper-plane"></i> Send Now
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">12K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Bouquet Styles</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">4.9★</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-bouquet-wrapper">
+                <div class="hero-bouquet">💐</div>
+                <div class="floating-hearts">
+                    <span class="fh fh1">❤️</span>
+                    <span class="fh fh2">🌸</span>
+                    <span class="fh fh3">💕</span>
+                    <span class="fh fh4">🌺</span>
+                    <span class="fh fh5">💖</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Strip -->
+    <div class="features-strip">
+        <div class="feature-item">
+            <i class="fas fa-truck"></i>
+            <span>Same Day Delivery</span>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-leaf"></i>
+            <span>Fresh Flowers Daily</span>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-heart"></i>
+            <span>Handcrafted with Love</span>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>100% Satisfaction</span>
+        </div>
+    </div>
+
+    <!-- Bouquets Section -->
+    <section class="bouquets" id="bouquets">
+        <div class="section-header">
+            <span class="section-tag">Our Collection</span>
+            <h2 class="section-title">Choose Your Perfect<br><span class="gradient-text">Romantic Bouquet</span></h2>
+            <p class="section-subtitle">Each bouquet is lovingly arranged by our expert florists using the freshest seasonal flowers.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="roses">Roses</button>
+            <button class="filter-btn" data-filter="mixed">Mixed</button>
+            <button class="filter-btn" data-filter="exotic">Exotic</button>
+            <button class="filter-btn" data-filter="seasonal">Seasonal</button>
+        </div>
+
+        <div class="bouquets-grid" id="bouquetsGrid">
+            <!-- Cards injected by JS -->
+        </div>
+    </section>
+
+    <!-- Send Bouquet Section -->
+    <section class="send-section" id="send">
+        <div class="send-container">
+            <div class="send-left">
+                <span class="section-tag">Send a Gift</span>
+                <h2 class="section-title">Surprise Someone<br><span class="gradient-text">Special Today 💌</span></h2>
+                <p>Fill in the details below and we'll make sure your bouquet reaches the right heart at the right time.</p>
+                <div class="send-features">
+                    <div class="sf-item"><i class="fas fa-check-circle"></i> Personal message included</div>
+                    <div class="sf-item"><i class="fas fa-check-circle"></i> Anonymous sending option</div>
+                    <div class="sf-item"><i class="fas fa-check-circle"></i> Real-time delivery tracking</div>
+                    <div class="sf-item"><i class="fas fa-check-circle"></i> Gift wrapping available</div>
+                </div>
+                <div class="selected-preview" id="selectedPreview">
+                    <div class="preview-emoji" id="previewEmoji">💐</div>
+                    <div class="preview-info">
+                        <span class="preview-name" id="previewName">No bouquet selected</span>
+                        <span class="preview-price" id="previewPrice">Select from above ↑</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="send-right">
+                <form class="send-form" id="sendForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Your Name</label>
+                            <input type="text" id="senderName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Your Email</label>
+                            <input type="email" id="senderEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-heart"></i> Recipient's Name</label>
+                            <input type="text" id="recipientName" placeholder="Who is it for?" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Recipient's Phone</label>
+                            <input type="tel" id="recipientPhone" placeholder="+1 (555) 000-0000" required>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-map-marker-alt"></i> Delivery Address</label>
+                        <input type="text" id="deliveryAddress" placeholder="Full delivery address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Delivery Date</label>
+                            <input type="date" id="deliveryDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Preferred Time</label>
+                            <select id="deliveryTime">
+                                <option value="">Select time slot</option>
+                                <option value="morning">Morning (8AM – 12PM)</option>
+                                <option value="afternoon">Afternoon (12PM – 4PM)</option>
+                                <option value="evening">Evening (4PM – 8PM)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-bouquet"></i> Choose Bouquet</label>
+                        <select id="bouquetSelect">
+                            <option value="">-- Select a bouquet --</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-comment-heart"></i> Personal Message</label>
+                        <textarea id="personalMessage" rows="4" placeholder="Write your heartfelt message here... 💕"></textarea>
+                        <span class="char-count" id="charCount">0 / 200</span>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="anonymous">
+                            <span class="checkmark"></span>
+                            Send anonymously 🕵️
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="giftWrap">
+                            <span class="checkmark"></span>
+                            Add gift wrapping (+$5) 🎁
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-send" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i> Send My Bouquet 💌
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <span class="section-tag">Moments of Joy</span>
+            <h2 class="section-title">Delivered with <span class="gradient-text">Love & Care</span></h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item gi-large">
+                <div class="gallery-emoji">🌹</div>
+                <div class="gallery-overlay"><span>Red Rose Elegance</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-emoji">🌷</div>
+                <div class="gallery-overlay"><span>Pink Tulip Dream</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-emoji">🌸</div>
+                <div class="gallery-overlay"><span>Cherry Blossom</span></div>
+            </div>
+            <div class="gallery-item gi-wide">
+                <div class="gallery-emoji">💐</div>
+                <div class="gallery-overlay"><span>Grand Bouquet</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-emoji">🌺</div>
+                <div class="gallery-overlay"><span>Hibiscus Passion</span></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-emoji">🪷</div>
+                <div class="gallery-overlay"><span>Lotus Serenity</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <span class="section-tag">Love Stories</span>
+            <h2 class="section-title">What Our <span class="gradient-text">Customers Say</span></h2>
+        </div>
+        <div class="testimonials-slider" id="testimonialsSlider">
+            <!-- Injected by JS -->
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-confetti" id="confetti"></div>
+            <div class="modal-icon">💌</div>
+            <h2 class="modal-title">Bouquet Sent!</h2>
+            <p class="modal-msg" id="modalMsg">Your beautiful bouquet is on its way to the one you love!</p>
+            <div class="modal-details" id="modalDetails"></div>
+            <button class="btn-primary modal-btn" onclick="closeModal()">
+                <i class="fas fa-heart"></i> Send Another
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">🌹</span>
+                    <span class="logo-text">BloomLove</span>
+                </div>
+                <p>Spreading love, one bouquet at a time. Crafted with care, delivered with heart. 💕</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#bouquets">Bouquets</a></li>
+                    <li><a href="#send">Send Now</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-phone"></i> +1 (800) BLOOM-LV</p>
+                <p><i class="fas fa-envelope"></i> love@bloomlove.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Rose Garden Ln, NY</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BloomLove. Made with ❤️ for all the romantics.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
